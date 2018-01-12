@@ -1,6 +1,6 @@
 # DeepSong
 
-dependencies: PyTorch
+dependencies:python 3, PyTorch
 
 to execute:
 python deepsong.py

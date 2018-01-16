@@ -92,7 +92,7 @@ class Trainer:
         # begin training
         self.train()
 
-    # build the stanzas of the songs
+    # build the stanzas of the songs (every song is consdered as a stanza)
     def stanzas(self, lyrics):
         lines = lyrics.split('\n')
         num_lines = len(lines)

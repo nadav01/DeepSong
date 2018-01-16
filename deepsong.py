@@ -42,7 +42,7 @@ def allLyrics(urls):
     songsurl = []
     allLyrics = ""
     for u in urls:
-        time.sleep(5) #wait for not being blocked
+        time.sleep(6) #wait for not being blocked
         content = urllib.request.urlopen(u).read()
         soup = BeautifulSoup(content, 'html.parser')
         for link in soup.find_all('a'):
@@ -58,7 +58,7 @@ def allLyrics(urls):
 
 def get_song_lyrics(url):
     try:
-        time.sleep(5) #wait for not being blocked
+        time.sleep(6) #wait for not being blocked
         content = urllib.request.urlopen(url).read()
         soup = BeautifulSoup(content, 'html.parser')
         lyrics = str(soup)

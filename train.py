@@ -70,7 +70,7 @@ class Trainer:
             self.batch_size = batch_size
 
         self.h = open(self.filename, "r+", -1, encoding='utf8').read()
-        self.h = self.h.split('\n')
+        self.h = self.stanzas(self.h)
         self.num_h = len(self.h)
 
         self.decoder = CharRNN(
@@ -92,6 +92,23 @@ class Trainer:
         # begin training
         self.train()
 
+    # build the stanzas of the songs
+    def stanzas(self, lyrics):
+        lines = lyrics.split('\n')
+        num_lines = len(lines)
+        stanzas = []
+        stanza = ''
+        for i in range(0,num_lines-1):
+            l = lines[i]
+            if l != '':
+                if stanza == '':
+                    stanza = lines[i]
+                if stanza != '':
+                    stanza += ' ' + lines[i]
+            if l == '':
+                stanzas.append(stanza)
+                stanza = ''
+        return stanzas
 
     """
     generates chunk of length of chunklen + 1 because the cut off in random_training_set

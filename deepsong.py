@@ -1,6 +1,3 @@
-import re, time
-import urllib.request
-from bs4 import BeautifulSoup
 import train, get_lyrics, generator
 
 

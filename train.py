@@ -6,11 +6,8 @@ from random import randint
 import os
 from itertools import islice
 from tqdm import tqdm
-import generate
-
 from helpers import *
 from model import *
-from generate import *
 import generator
 
 """

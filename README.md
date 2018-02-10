@@ -13,10 +13,12 @@ Then, if you under Windows: <br/>
 ```
 conda install -c peterjc123 pytorch
 ```
-<br/>
-If you are under Linux / MacOS: see instructions on [pytorch.org](https://www.pytorch.org)
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
+If you are under Linux / MacOS: see instructions on [pytorch.org](https://www.pytorch.org)<br/>
+* Install BeautifulSoup 4: <br/>
+```
+pip install beautifulsoup4
+```
 to execute:
 python deepsong.py
 

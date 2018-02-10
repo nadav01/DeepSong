@@ -23,7 +23,7 @@ pip install beautifulsoup4
 ```
 conda install -c conda-forge tqdm
 ```
-OR
+  OR
 ```
 pip install tqdm
 ```

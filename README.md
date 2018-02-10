@@ -5,6 +5,8 @@ DeepSong is a little project which aims to raise the awareness of the progress i
 After that you can start generating songs lyrics from that new artist you have created and play the 'Artificial Singers Game'.<br/>
 Have fun :)
 
+<br/>
+
 ## Dependencies:
 * [Python 3.6](https://www.python.org/downloads/)
 * Install PyTorch: <br/>
@@ -23,10 +25,11 @@ pip install beautifulsoup4
 ```
 conda install -c conda-forge tqdm
 ```
-  OR
+OR
 ```
 pip install tqdm
 ```
+<br/>
 
 ## Running DeepSong:
 After installing all the dependencies, simply download and extract the project's files and: <br/>

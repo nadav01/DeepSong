@@ -28,7 +28,7 @@ OR
 pip install tqdm
 ```
 
-## Running:
+## Running DeepSong:
 After installing all the dependencies, simply download and extract the project's files and: <br/>
 ```
 python deepsong.py

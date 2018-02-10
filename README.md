@@ -6,7 +6,16 @@ After that you can start generating songs lyrics from that new artist you have c
 Have fun :)
 
 # dependencies:
-python 3, PyTorch
+* [Python 3.6](https://www.python.org/downloads/)
+* Install PyTorch: <br/>
+first install [Anaconda](https://www.anaconda.com/download/). <br/>
+Then, if you under Windows: <br/>
+```
+conda install -c peterjc123 pytorch
+```
+<br/>
+If you are under Linux / MacOS: see instructions on [pytorch.org](https://www.pytorch.org)
+* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 to execute:
 python deepsong.py

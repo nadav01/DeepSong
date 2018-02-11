@@ -38,7 +38,7 @@ python deepsong.py
 ```
 
 ## Running the 'Artificial Singers Game':
-After installing all the dependencies, simply download and extract the project's files. <br/.>
+After installing all the dependencies, simply download and extract the project's files. <br/>
 Within the same folder, create a new directory named 'models'. In this directory you need to place <br/>
 at least 4 trained models (created in the DeepSong interface). For each model  model_name.pt you need to create <br/>
 model_name.txt which contains the artists you chose for the model in the DeepSong interface (each artist in a seperate line). <br/>

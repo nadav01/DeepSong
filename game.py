@@ -96,11 +96,11 @@ while(True):
 
     if user_input == 's':
         fname = 'models/' + model_name.split('.')[0]+'.txt'
-        make_stanza_tei(stanza, fname, get_year(fname))
+        make_stanza_tei(stanza, fname, str(get_year(fname)))
         print('Please choose an answer')
         user_input = input()
     if user_input == 'h':
-        print(get_hint(model_name))
+        get_hint(model_name)
         print('Please choose an answer')
         user_input = input()
     if int(user_input) == answer:

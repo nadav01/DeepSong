@@ -1,7 +1,7 @@
 <p align="center"> 
 <img src="https://i.imgur.com/wSIr6IY.png">
 </p>
-DeepSong is a project which aims to raise the general public's awareness of the progress in the capacity of artificial intelligence. This is acheived by creating a "song writer" which is a neural network model which has been trained on the poets / lyrics chosen by you. The DeepSong interface allows you to select several singers (or bands). It then collects the respective lyrics and trains a neural network on the corpus. The result is a new 'singer' which is a combination of all the singers/bands you chose.<br/>
+DeepSong is a final project in the course Digital Humanities 181 in Ben Gurion University. DeepSong is a project which aims to raise the general public's awareness of the progress in the capacity of artificial intelligence. This is acheived by creating a "song writer" which is a neural network model which has been trained on the poets / lyrics chosen by you. The DeepSong interface allows you to select several singers (or bands). It then collects the respective lyrics and trains a neural network on the corpus. The result is a new 'singer' which is a combination of all the singers/bands you chose.<br/>
 After that you can start generating songs lyrics from that new 'artist' you have created or play the 'Artificial Singers Game'.<br/>
 Have fun :)
 

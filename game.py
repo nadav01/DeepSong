@@ -9,7 +9,7 @@ class Generator:
     def __init__(self, filename):
         self.decoder = torch.load(filename)
 
-    def generate(self, prime_str='A', predict_len=120, temperature=0.8, cuda=False):
+    def generate(self, prime_str='A', predict_len=110, temperature=0.4, cuda=False):
         hidden = self.decoder.init_hidden(1)
         prime_input = Variable(char_tensor(prime_str).unsqueeze(0))
 
@@ -52,7 +52,7 @@ abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
        'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
        'u', 'v', 'w', 'x', 'y', 'z']
 
-# the models filenames in the models dir
+# the keys are models filenames in the models dir and values are the .pt models
 models = {}
 
 for subdir, dirs, files in os.walk('models'):
@@ -94,17 +94,25 @@ while(True):
     stanza = question.split('?')[1].split('1.')[0]
     user_input = input()
 
-    if user_input == 's':
-        fname = 'models/' + model_name.split('.')[0]+'.txt'
-        make_stanza_tei(stanza, fname, str(get_year(fname)))
-        print('Please choose an answer')
-        user_input = input()
-    if user_input == 'h':
-        get_hint(model_name)
-        print('Please choose an answer')
-        user_input = input()
-    if int(user_input) == answer:
-        print('You are right! nice :)')
-    elif int(user_input) != answer:
-        print('Wrong answer. The right answer is: ' + str(answer))
+    while user_input != '1' and user_input != '2':
+        if user_input == 's':
+            fname = 'models/' + model_name.split('.')[0]+'.txt'
+            make_stanza_tei(stanza, fname, str(get_year(fname)))
+            print('Please choose an answer')
+            user_input = input()
+        elif user_input == 'h':
+            get_hint(model_name)
+            print('Please choose an answer')
+            user_input = input()
+        elif user_input != '1' and user_input != '2':
+            print('Invalid input. Please try again.')
+            user_input = input()
+
+
+    if user_input == '1' or user_input == '2':
+        if int(user_input) == answer:
+            print('You are right! nice :)')
+        elif int(user_input) != answer:
+            print('Wrong answer. The right answer is: ' + str(answer))
+
     print('\nNext question:')

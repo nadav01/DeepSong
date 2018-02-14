@@ -116,12 +116,9 @@ def update_names_list_from_file_(filename):
     with open(filename, 'r+', encoding='utf8') as f:
         my_list = f.read()
         my_list = my_list.split("\n")
+        my_list = [s.strip('\ufeff') for s in my_list]
         my_list = to_upper(my_list)
         return my_list
-        # f.seek(0)
-        # for name in my_list:
-        #     f.write(name)
-        #     f.write('\n')
 
 def extract_names(filename):
     with open(filename, 'r+', encoding='utf8') as f:
@@ -167,7 +164,7 @@ def get_random_year(list_to_work_with):
 
 def get_genre(list_to_work_with):
     genre = 0
-    range_list=list(range(len(list_to_work_with)-1))
+    range_list=list(range(len(list_to_work_with)))
     shuffle(range_list)
     for name in range_list:
         genre = get_genre_query_answer(list_to_work_with[name])
@@ -180,7 +177,7 @@ def get_genre(list_to_work_with):
 
 def get_hometown(list_to_work_with):
     hometown = 0
-    range_list = list(range(len(list_to_work_with)-1))
+    range_list = list(range(len(list_to_work_with)))
     shuffle(range_list)
     for name in range_list:
         hometown = get_birth_place_query_answer(list_to_work_with[name])
@@ -196,9 +193,9 @@ def get_info(filename):
     genre = get_genre(list_for_work)
     hometown = get_hometown(list_for_work)
     activity_year = get_random_year(list_for_work)
-    print(genre)
-    print(hometown)
-    print(activity_year)
+    print("One of the artist's favorite genres is " + genre)
+    print("This band member's or singer's hometown is " + hometown)
+    print("The year when this artist was in its peak is " + str(activity_year))
 
 def get_year(filename):
     list_for_work = update_names_list_from_file_(filename)

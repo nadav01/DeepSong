@@ -1,6 +1,6 @@
 
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
-import datetime
+import datetime, re
 from xml.etree import ElementTree
 from xml.dom import minidom
 
@@ -16,7 +16,7 @@ def extract_names(filename):
     with open(filename, 'r+', encoding='utf8') as f:
         my_list = f.read()
         my_list = my_list.split("\n")
-        return my_list[:-1]
+        return my_list[:]
 
 
 '''
@@ -26,6 +26,7 @@ def make_stanza_tei(the_stanza, artists_file, date):
     artist_list = extract_names(artists_file)
     stanza_list = the_stanza.split(" ")
     song_name = stanza_list[0] + " " + stanza_list[1]
+    song_name = song_name[1:]
 
     generated_on = str(datetime.datetime.now())
 
@@ -41,7 +42,7 @@ def make_stanza_tei(the_stanza, artists_file, date):
     song_title = SubElement(titleStmt, 'title')
     song_title.text = song_name
     author_list_from_which_created = SubElement(titleStmt, 'authors')
-    author_list_from_which_created.text = str(artist_list)
+    author_list_from_which_created.text = str(', '.join(artist_list)).strip('\ufeff')
     respStmt1 = SubElement(titleStmt, 'respStmt')
     respStmt2 = SubElement(titleStmt, 'respStmt')
     resp1 = SubElement(respStmt1, 'resp')
@@ -56,7 +57,7 @@ def make_stanza_tei(the_stanza, artists_file, date):
 
     publicationStmt = SubElement(fileDesc, 'publicationStmt')
     publisher = SubElement(publicationStmt, 'publisher')
-    publisher.text = 'Oren Sheffer and Nadav Loebel Ben-Gurion University in Beer-Sheva'
+    publisher.text = 'Oren Sheffer and Nadav Loebl Ben-Gurion University in Beer-Sheva'
     date = SubElement(publicationStmt, 'datetime')
     date.text = generated_on
     availability = SubElement(publicationStmt, 'availability')
@@ -67,9 +68,9 @@ def make_stanza_tei(the_stanza, artists_file, date):
     p11 = SubElement(sourceDesc, 'p')
     p11.text = 'DeepSong: a deep learning automatic song creator'
     p12 = SubElement(sourceDesc, 'p')
-    p12.text = 'wikiLytics.com: put url here'
+    p12.text = 'WikiaLyrics: lyrics.wikia.com'
     p13 = SubElement(sourceDesc, 'p')
-    p13.text = 'dbpedia + sparql: url here'
+    p13.text = 'dbpedia: wiki.dbpedia.org'
 
     encodingDesc = SubElement(head, 'encodingDesc')
     projectDesc = SubElement(encodingDesc, 'projectDesc')
@@ -90,7 +91,9 @@ def make_stanza_tei(the_stanza, artists_file, date):
     stanza.text = the_stanza
 
     #print (prettify(root))
-    with open("stanza.xml", "w") as file_to:
+    fname = "stanza_" + song_name.replace(' ', '_')
+    fname = re.sub(r'[^\w\s]','',fname)
+    with open(fname + ".xml", "w") as file_to:
         file_to.write(prettify(root))
 
     print('The file has been saved.')

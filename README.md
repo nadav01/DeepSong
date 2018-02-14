@@ -39,8 +39,7 @@ python deepsong.py
 
 ## Running the 'Artificial Singers Game':
 After installing all the dependencies, simply download and extract the project's files. <br/>
-Within the same folder, create a new directory named 'models'. In this directory you need to place <br/>
-at least 4 trained models (created in the DeepSong interface). For each model  model_name.pt you need to create <br/>
+You need to place at least 2 trained models (created in the DeepSong interface) in the 'models' directory. For each model model_name.pt you need to create <br/>
 model_name.txt which contains the artists you chose for the model in the DeepSong interface (each artist in a seperate line). <br/>
 This text file is for the Sparql quries (when a user ask for a hint in the game, it collects information about the artists and <br/>
 combinds them into a new imaginary character. <br/>

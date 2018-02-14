@@ -9,7 +9,7 @@ class Generator:
     def __init__(self, filename):
         self.decoder = torch.load(filename)
 
-    def generate(self, prime_str='A', predict_len=110, temperature=0.4, cuda=False):
+    def generate(self, prime_str='A', predict_len=150, temperature=0.4, cuda=False):
         hidden = self.decoder.init_hidden(1)
         prime_input = Variable(char_tensor(prime_str).unsqueeze(0))
 
@@ -67,6 +67,14 @@ def gen_question():
     models_names = random.sample(models.keys(), 2)
     ans = models_names[0]
     stanza = models[ans].generate(prime_str=random.sample(abc, 1))
+
+    # genertaing random new lines
+    splitted_stanza = stanza.split()
+    first_newline = random.randint(1, int(len(splitted_stanza)/4))
+    second_newline = random.randint(int(len(splitted_stanza)/4), int(len(splitted_stanza)/4)*2)
+    third_newline = random.randint(int(len(splitted_stanza)/4)*2, int(len(splitted_stanza)/4)*3)
+    stanza = ' '.join(splitted_stanza[:first_newline]) + '\n' + ' '.join(splitted_stanza[first_newline:second_newline]) + '\n' + ' '.join(splitted_stanza[second_newline:third_newline]) + '\n' + ' '.join(splitted_stanza[third_newline:])
+
     random.shuffle(models_names)
     q = 'To which model (singer) this stanza belongs?' + '\n' + stanza + '\n' + '1. ' + models_names[0].split('.')[0] + ' 2. ' + models_names[1].split('.')[0]
     ans_index = models_names.index(ans)

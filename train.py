@@ -162,8 +162,8 @@ class Trainer:
                 loss = self.train_(*self.random_training_set(self.chunk_len, self.batch_size))
                 self.loss_avg += loss
 
-                if epoch % self.print_every == 0:
-                    print('[%s (%d %d%%) %.4f]' % (time_since(self.start), epoch, epoch / self.n_epochs * 100, loss))
+                #if epoch % self.print_every == 0:
+                #    print('[%s (%d %d%%) %.4f]' % (time_since(self.start), epoch, epoch / self.n_epochs * 100, loss))
 
             print("Saving...")
             self.save()

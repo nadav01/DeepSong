@@ -52,7 +52,7 @@ def make_stanza_tei(the_stanza, artists_file, date):
     average_active_start_year = SubElement(respStmt1, 'date')
     average_active_start_year.text = date
     random_album_name = SubElement(respStmt2, 'album')
-    random_album_name.text = "some random album name"
+    random_album_name.text = "The greatest hits of " + artists_file[7:-4]
 
 
     publicationStmt = SubElement(fileDesc, 'publicationStmt')

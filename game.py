@@ -65,6 +65,7 @@ for subdir, dirs, files in os.walk('models'):
 # returns touple (question:string, right answer:int, the right answer model's name:string [for hint])
 def gen_question():
     models_names = random.sample(models.keys(), 2)
+    random.shuffle(models_names)
     ans = models_names[0]
     stanza = models[ans].generate(prime_str=random.sample(abc, 1))
 

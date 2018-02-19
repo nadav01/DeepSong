@@ -36,6 +36,17 @@ After installing all the dependencies, simply download and extract the project's
 ```
 python deepsong.py
 ```
+you should get <br/>
+```
+#########################
+## Welcome to DeepSong ##
+#########################
+
+
+>>> To create a new artist type n,
+>>> To train a model on existing corpus [.txt file] type c,
+>>> To generate songs from an existing model, type g
+```
 
 ## Running the 'Artificial Singers Game':
 After installing all the dependencies, simply download and extract the project's files. <br/>

@@ -55,3 +55,33 @@ Then: <br/>
 ```
 python game.py
 ```
+you should get, for example <br/>
+```
+##### Welcome the the Artificial Singers Game! #####
+In order to start the game, all the models need to be
+placed in the models directory (a .pt file) including a .txt
+file with the same name in which all the singers the model
+composed of is written inside (each singer in a seperate line).
+You can create models using the DeepSong interface.
+To start the game, press Enter.
+
+Ok, lets start!
+For each generated stanza, you need to indentify the right singer which created it.
+For a hint, type h.
+To save the stanza as a xml TEI file, type s.
+To which model (singer) this stanza belongs?
+she thought i don't know
+i see me from the dirty street of my mind
+know the light
+i know i feel like the way i don't like you
+1. 60s 2. 90s
+h
+Some details about the model which has generated this stanza:
+One of the artist's favorite genres is Blues_rock
+This band member's or singer's hometown is Oxfordshire
+Please choose an answer
+2
+You are right! nice :)
+```
+
+For any question: nadavloebl@gmail.com
